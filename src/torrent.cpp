@@ -3741,6 +3741,8 @@ namespace {
 		if (m_peer_list->add_i2p_peer(dest, peer_info::tracker, {}, &st))
 			state_updated();
 		peers_erased(st.erased);
+
+		update_want_peers();
 	}
 	catch (...) { handle_exception(); }
 #endif

@@ -1747,6 +1747,10 @@ namespace {
 		e.source = source;
 		m_urls.push_back(e);
 
+#if TORRENT_USE_I2P
+		if (is_i2p_url(e.url)) m_flags |= i2p;
+#endif
+
 		std::sort(m_urls.begin(), m_urls.end()
 			, [] (announce_entry const& lhs, announce_entry const& rhs)
 			{ return lhs.tier < rhs.tier; });

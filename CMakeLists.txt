@@ -335,7 +335,8 @@ set(sources
 	hash_picker.cpp
 	hasher.cpp
 	hex.cpp
-	http_connection.cpp
+	http_connection1.cpp
+	http_connection2.cpp
 	http_parser.cpp
 	http_seed_connection.cpp
 	http_tracker_connection.cpp

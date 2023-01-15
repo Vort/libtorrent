@@ -277,7 +277,7 @@ private:
 				break;
 		}
 
-		string_view remaining(m_buffer.data(), m_buffer.size());
+		string_view remaining(m_buffer.data(), m_buffer.size() - 1);
 		string_view token;
 
 		std::tie(token, remaining) = split_string(remaining, ' ');
