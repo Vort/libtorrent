@@ -193,7 +193,7 @@ private:
 
 		// send hello command
 		m_state = read_hello_response;
-		static const char cmd[] = "HELLO VERSION MIN=3.0 MAX=3.0\n";
+		static const char cmd[] = "HELLO VERSION MIN=3.1 MAX=3.1\n";
 
 		ADD_OUTSTANDING_ASYNC("i2p_stream::start_read_line");
 		async_write(m_sock, boost::asio::buffer(cmd, sizeof(cmd) - 1), wrap_allocator(
@@ -427,8 +427,8 @@ private:
 		TORRENT_ASSERT(m_magic == 0x1337);
 		m_state = read_session_create_response;
 		char cmd[400];
-		int size = std::snprintf(cmd, sizeof(cmd), "SESSION CREATE STYLE=STREAM ID=%s DESTINATION=TRANSIENT\n"
-			, m_id);
+		char options[] = "inbound.quantity=3 outbound.quantity=3 outbound.length=1 inbound.length=1";
+		int size = std::snprintf(cmd, sizeof(cmd), "SESSION CREATE STYLE=STREAM ID=%s DESTINATION=TRANSIENT SIGNATURE_TYPE=7 %s\n", m_id, options);
 		ADD_OUTSTANDING_ASYNC("i2p_stream::start_read_line");
 		async_write(m_sock, boost::asio::buffer(cmd, std::size_t(size)), wrap_allocator(
 			[this](error_code const& ec, std::size_t, Handler hn) {
