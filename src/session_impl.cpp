@@ -2407,9 +2407,9 @@ namespace {
 #endif
 			return;
 		}
-		open_new_incoming_i2p_connection();
 		incoming_connection(std::move(*m_i2p_listen_socket));
 		m_i2p_listen_socket.reset();
+		open_new_incoming_i2p_connection();
 	}
 #endif
 
