@@ -2331,6 +2331,10 @@ namespace {
 		}
 		m_i2p_conn.open(m_settings.get_str(settings_pack::i2p_hostname)
 			, m_settings.get_int(settings_pack::i2p_port)
+			, m_settings.get_int(settings_pack::i2p_inbound_quantity)
+			, m_settings.get_int(settings_pack::i2p_outbound_quantity)
+			, m_settings.get_int(settings_pack::i2p_inbound_length)
+			, m_settings.get_int(settings_pack::i2p_outbound_length)
 			, std::bind(&session_impl::on_i2p_open, this, _1));
 #endif
 	}
