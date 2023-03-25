@@ -82,6 +82,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "session_view.hpp"
 #include "print.hpp"
 
+#if TORRENT_USE_I2P
+// this is cheating, for base32encode()
+#include "libtorrent/aux_/escape_string.hpp"
+#endif
+
 
 #ifdef _WIN32
 
@@ -363,10 +368,20 @@ int print_peer_info(std::string& out
 
 		if (print_ip)
 		{
-			std::snprintf(str, sizeof(str), "%-30s ", ::print_endpoint(i->ip).c_str());
+#if TORRENT_USE_I2P
+			if (i->flags & peer_info::i2p_socket)
+			{
+				std::snprintf(str, sizeof(str), "%-30s "
+					, lt::base32encode(i->i2p_destination(), lt::string::i2p).c_str());
+			}
+			else
+#endif
+			{
+				std::snprintf(str, sizeof(str), "%-30s ", ::print_endpoint(i->ip).c_str());
+			}
 			out += str;
 		}
-		if (print_local_ip)
+		if (print_local_ip && !(i->flags & peer_info::i2p_socket))
 		{
 			std::snprintf(str, sizeof(str), "%-30s ", ::print_endpoint(i->local_endpoint).c_str());
 			out += str;
