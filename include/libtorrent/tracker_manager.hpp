@@ -165,6 +165,7 @@ enum class event_t : std::uint8_t
 		std::vector<peer_entry> peers;
 		std::vector<ipv4_peer_entry> peers4;
 		std::vector<ipv6_peer_entry> peers6;
+		std::vector<i2p_peer_entry> i2p_peers;
 		// our external IP address (if the tracker responded with ti, otherwise
 		// INADDR_ANY)
 		address external_ip;
