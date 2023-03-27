@@ -83,7 +83,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "print.hpp"
 
 #if TORRENT_USE_I2P
-// this is cheating, for base32encode()
+// this is cheating, for base32encode_i2p()
 #include "libtorrent/aux_/escape_string.hpp"
 #endif
 
@@ -372,7 +372,7 @@ int print_peer_info(std::string& out
 			if (i->flags & peer_info::i2p_socket)
 			{
 				std::snprintf(str, sizeof(str), "%-30s "
-					, lt::base32encode(i->i2p_destination(), lt::string::i2p).c_str());
+					, lt::base32encode_i2p(i->i2p_destination()).c_str());
 			}
 			else
 #endif
