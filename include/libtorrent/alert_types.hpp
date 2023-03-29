@@ -52,7 +52,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "libtorrent/assert.hpp"
 #include "libtorrent/identify_client.hpp"
 #include "libtorrent/address.hpp"
-#include "libtorrent/stat.hpp"
 #include "libtorrent/add_torrent_params.hpp"
 #include "libtorrent/torrent_status.hpp"
 #include "libtorrent/entry.hpp"
@@ -85,6 +84,8 @@ POSSIBILITY OF SUCH DAMAGE.
 #define PROGRESS_NOTIFICATION
 #endif
 
+#undef stat
+#include "libtorrent/stat.hpp"
 
 namespace libtorrent {
 

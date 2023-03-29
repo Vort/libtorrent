@@ -45,6 +45,7 @@ libtool
 *.rej
 
 bin
+build
 cmake-build-*
 CMakeLists.txt.user
 config*

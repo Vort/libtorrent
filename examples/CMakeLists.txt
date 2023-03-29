@@ -23,5 +23,11 @@ add_executable(client_test
     client_test.cpp
     print.cpp
     torrent_view.cpp
-    session_view.cpp)
+    session_view.cpp
+	../src/escape_string.cpp
+	../src/hex.cpp
+	../src/parse_url.cpp
+	../src/string_util.cpp
+	../src/random.cpp
+	)
 target_link_libraries(client_test PRIVATE torrent-rasterbar)
