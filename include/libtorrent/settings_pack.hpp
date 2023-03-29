@@ -1895,6 +1895,18 @@ namespace aux {
 			// .. _i2p: http://www.i2p2.de
 			i2p_port,
 
+			// quantity of I2P inbound tunnels [1..16]
+			i2p_inbound_quantity,
+
+			// quantity of I2P outbound tunnels [1..16]
+			i2p_outbound_quantity,
+
+			// amount of hops for I2P inbound tunnels [0..7]
+			i2p_inbound_length,
+
+			// amount of hops for I2P outbound tunnels [0..7]
+			i2p_outbound_length,
+
 #if TORRENT_ABI_VERSION == 1
 			// this determines the max number of volatile disk cache blocks. If the
 			// number of volatile blocks exceed this limit, other volatile blocks

@@ -120,6 +120,10 @@ namespace libtorrent {
 		, m_id(nullptr)
 		, m_command(cmd_create_session)
 		, m_state(read_hello_response)
+		, m_inbound_quantity(3)
+		, m_outbound_quantity(3)
+		, m_inbound_length(3)
+		, m_outbound_length(3)
 	{
 #if TORRENT_USE_ASSERTS
 		m_magic = 0x1337;
